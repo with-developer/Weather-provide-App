@@ -9,46 +9,60 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Toast message',
-      home: MyPage(),
+      title: 'Navigater',
+      home: FirstPages(),
     );
   }
 }
 
-class MyPage extends StatelessWidget {
-  const MyPage({Key? key}) : super(key: key);
+class FirstPages extends StatelessWidget {
+  const FirstPages({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context2) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Toast message'),
+        title: Text('First Pages'),
         backgroundColor: Colors.blue[300],
         centerTitle: true,
         elevation: 0.0,
       ),
       body: Center(
-        child: TextButton(
+        child: ElevatedButton(
+          child: Text('Go to the Seconds pages'),
           onPressed: () {
-            flutterToast();
+            // Navigator.push(context2,
+            //     MaterialPageRoute(builder: (BuildContext context) {
+            //   return SecondPages();
+            Navigator.push(context2,
+                MaterialPageRoute(builder: (context) => SecondPages()));
           },
-          child: Text(
-            'Toast',
-          ),
-          style: TextButton.styleFrom(
-              backgroundColor: Colors.black, primary: Colors.white),
         ),
       ),
     );
   }
 }
 
-void flutterToast() {
-  Fluttertoast.showToast(
-      msg: 'Flutter',
-      gravity: ToastGravity.BOTTOM,
-      backgroundColor: Colors.redAccent,
-      fontSize: 20.0,
-      textColor: Colors.white,
-      toastLength: Toast.LENGTH_SHORT);
+class SecondPages extends StatelessWidget {
+  const SecondPages({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext ctx) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('SecondPages'),
+        backgroundColor: Colors.blue[300],
+        centerTitle: true,
+        elevation: 0.0,
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: Text('Go to the First pages'),
+          onPressed: () {
+            Navigator.pop(ctx);
+          },
+        ),
+      ),
+    );
+  }
 }
