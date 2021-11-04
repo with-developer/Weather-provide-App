@@ -25,11 +25,6 @@ class MyPage extends StatelessWidget {
         title: Text('Appbar icon menu'),
         centerTitle: true,
         elevation: 0.0,
-        leading: IconButton(
-            onPressed: () {
-              print('menu button is clicked');
-            },
-            icon: Icon(Icons.menu)),
         actions: [
           IconButton(
               onPressed: () {
@@ -42,6 +37,28 @@ class MyPage extends StatelessWidget {
               },
               icon: Icon(Icons.search)),
         ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            UserAccountsDrawerHeader(
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage('assets/image.jpeg'),
+              ),
+              accountEmail: Text('weakness@kakao.com'),
+              accountName: Text('junhyeong'),
+              onDetailsPressed: () {
+                print('detail button is clicked');
+              },
+              decoration: BoxDecoration(
+                  color: Colors.red[200],
+                  borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(40.0),
+                      bottomRight: Radius.circular(40.0))),
+            )
+          ],
+        ),
       ),
     );
   }
