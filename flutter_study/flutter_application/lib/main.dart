@@ -21,11 +21,11 @@ class Grade extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber[800],
+      backgroundColor: Colors.red[200],
       appBar: AppBar(
         centerTitle: true,
         title: Text('Introduction'),
-        backgroundColor: Colors.amber[700],
+        backgroundColor: Colors.red[300],
         elevation: 0.0,
         actions: [
           IconButton(
@@ -51,7 +51,7 @@ class Grade extends StatelessWidget {
               otherAccountsPictures: [
                 CircleAvatar(
                   backgroundImage: AssetImage('assets/image2.png'),
-                  backgroundColor: Colors.amber[500],
+                  backgroundColor: Colors.red[200],
                 )
               ],
               accountEmail: Text(
@@ -72,7 +72,7 @@ class Grade extends StatelessWidget {
                 print('detail button is clicked');
               },
               decoration: BoxDecoration(
-                  color: Colors.amber[500],
+                  color: Colors.red[200],
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(40.0),
                       bottomRight: Radius.circular(40.0))),
@@ -96,6 +96,8 @@ class Grade extends StatelessWidget {
               title: Text('Settings'),
               onTap: () {
                 print('Settings Button is clicked');
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => Settings()));
               },
               trailing: Icon(Icons.add),
             ),
@@ -267,10 +269,36 @@ class Grade extends StatelessWidget {
               child: CircleAvatar(
                 backgroundImage: AssetImage('assets/image2.png'),
                 radius: 40.0,
-                backgroundColor: Colors.amber[800],
+                backgroundColor: Colors.red[200],
               ),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class Settings extends StatelessWidget {
+  const Settings({Key? key}) : super(key: key);
+
+  Widget build(BuildContext ctx) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text('Settings'),
+        backgroundColor: Colors.red[300],
+        elevation: 0.0,
+      ),
+      body: Center(
+        child: ElevatedButton(
+          child: Text('Go to the Home'),
+          style: ElevatedButton.styleFrom(
+            primary: Colors.red[300],
+          ),
+          onPressed: () {
+            Navigator.pop(ctx);
+          },
         ),
       ),
     );
