@@ -10,7 +10,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Toast message',
-      theme: ThemeData(primarySwatch: Colors.red),
       home: MyPage(),
     );
   }
@@ -36,7 +35,8 @@ class MyPage extends StatelessWidget {
           child: Text(
             'Toast',
           ),
-          style: TextButton.styleFrom(primary: Colors.amber),
+          style: TextButton.styleFrom(
+              backgroundColor: Colors.black, primary: Colors.white),
         ),
       ),
     );
