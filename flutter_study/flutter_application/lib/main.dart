@@ -27,6 +27,35 @@ class MyPage extends StatelessWidget {
         centerTitle: true,
         elevation: 0.0,
       ),
+      body: MySnackBar(),
+    );
+  }
+}
+
+class MySnackBar extends StatelessWidget {
+  const MySnackBar({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.blue,
+          ),
+          child: Text('show me'),
+          onPressed: () {
+            Scaffold.of(context).showSnackBar(SnackBar(
+              content: Text(
+                'hello',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              backgroundColor: Colors.blueGrey,
+              duration: Duration(milliseconds: 1000),
+            ));
+          }),
     );
   }
 }
