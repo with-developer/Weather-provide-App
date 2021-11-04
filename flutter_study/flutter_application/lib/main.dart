@@ -46,6 +46,12 @@ class MyPage extends StatelessWidget {
               currentAccountPicture: CircleAvatar(
                 backgroundImage: AssetImage('assets/image.jpeg'),
               ),
+              otherAccountsPictures: [
+                CircleAvatar(
+                  backgroundImage: AssetImage('assets/image2.png'),
+                  backgroundColor: Colors.red[200],
+                )
+              ],
               accountEmail: Text('weakness@kakao.com'),
               accountName: Text('junhyeong'),
               onDetailsPressed: () {
@@ -56,7 +62,40 @@ class MyPage extends StatelessWidget {
                   borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(40.0),
                       bottomRight: Radius.circular(40.0))),
-            )
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.home,
+                color: Colors.grey[850],
+              ),
+              title: Text('Home'),
+              onTap: () {
+                print('Home Button is clicked');
+              },
+              trailing: Icon(Icons.add),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.settings,
+                color: Colors.grey[850],
+              ),
+              title: Text('Settings'),
+              onTap: () {
+                print('Settings Button is clicked');
+              },
+              trailing: Icon(Icons.add),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.question_answer,
+                color: Colors.grey[850],
+              ),
+              title: Text('Q&A'),
+              onTap: () {
+                print('Q&A Button is clicked');
+              },
+              trailing: Icon(Icons.add),
+            ),
           ],
         ),
       ),
