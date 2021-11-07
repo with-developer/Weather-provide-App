@@ -28,11 +28,14 @@ class LogIn extends StatefulWidget {
 }
 
 class _LogInState extends State<LogIn> {
+  TextEditingController controller = TextEditingController();
+  TextEditingController controller2 = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login2'),
+        title: const Text('Login'),
         centerTitle: true,
         elevation: 0.0,
         backgroundColor: Colors.redAccent,
@@ -47,14 +50,71 @@ class _LogInState extends State<LogIn> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Center(
-            child: Image(
-              image: AssetImage('assets/chef.gif'),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const Padding(padding: EdgeInsets.only(top: 50)),
+            const Center(
+              child: Image(
+                image: AssetImage('assets/chef.gif'),
+                width: 170.0,
+                height: 190.0,
+              ),
             ),
-          ),
-        ],
+            Form(
+              child: Theme(
+                data: ThemeData(
+                  primaryColor: Colors.teal,
+                  inputDecorationTheme: const InputDecorationTheme(
+                    labelStyle: TextStyle(
+                      color: Colors.teal,
+                      fontSize: 15.0,
+                    ),
+                  ),
+                ),
+                child: Container(
+                  padding: const EdgeInsets.fromLTRB(50.0, 0.0, 50.0, 0.0),
+                  child: Column(
+                    children: [
+                      TextField(
+                          controller: controller,
+                          decoration: const InputDecoration(
+                            labelText: 'ID',
+                          ),
+                          keyboardType: TextInputType.emailAddress),
+                      TextField(
+                        controller: controller2,
+                        decoration: const InputDecoration(
+                          labelText: 'Password',
+                        ),
+                        keyboardType: TextInputType.text,
+                        obscureText: true,
+                      ),
+                      const SizedBox(
+                        height: 40.0,
+                      ),
+                      ButtonTheme(
+                        minWidth: 100.0,
+                        height: 50.0,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Colors.orangeAccent,
+                          ),
+                          onPressed: () {},
+                          child: const Icon(
+                            Icons.arrow_forward,
+                            color: Colors.white,
+                            size: 35.0,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
