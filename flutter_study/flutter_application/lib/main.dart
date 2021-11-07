@@ -32,7 +32,7 @@ class _LogInState extends State<LogIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: const Text('Login2'),
         centerTitle: true,
         elevation: 0.0,
         backgroundColor: Colors.redAccent,
@@ -49,9 +49,9 @@ class _LogInState extends State<LogIn> {
       ),
       body: Column(
         children: [
-          const Center(
-            child: const Image(
-              image: const AssetImage('image/chef.gif'),
+          Center(
+            child: Image(
+              image: AssetImage('assets/chef.gif'),
             ),
           ),
         ],
