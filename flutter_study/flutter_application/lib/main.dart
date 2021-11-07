@@ -14,6 +14,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Dice Game',
       theme: ThemeData(primarySwatch: Colors.red),
       home: const LogIn(),
@@ -59,7 +60,7 @@ class _LogInState extends State<LogIn> {
                 const Padding(padding: EdgeInsets.only(top: 50)),
                 const Center(
                   child: Image(
-                    image: AssetImage('assets/chef.gif'),
+                    image: AssetImage('assets/image2.png'),
                     width: 170.0,
                     height: 190.0,
                   ),
@@ -110,7 +111,7 @@ class _LogInState extends State<LogIn> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (BuildContext context) =>
-                                              Dice()));
+                                              const Dice()));
                                 } else if (controller.text != 'admin' &&
                                     controller2.text == 'admin') {
                                   floating(context, '아이디가 일치하지 않습니다.');
@@ -145,7 +146,7 @@ class _LogInState extends State<LogIn> {
 floating(BuildContext context, String printmessage) {
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
     content: Text(printmessage),
-    duration: Duration(seconds: 3),
+    duration: const Duration(seconds: 3),
     backgroundColor: Colors.blue,
   ));
 }
