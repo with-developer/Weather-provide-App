@@ -1,22 +1,17 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
-import 'settings.dart';
+import 'package:flutter_application/login_app/login.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'My Introduction',
-      initialRoute: '/',
-      routes: {
-        '/': (context) => Home(),
-        '/settings': (context) => Settings(),
-      },
+      title: 'Firebase login',
+      home: LogIn(),
     );
   }
 }
