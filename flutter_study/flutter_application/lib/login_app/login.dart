@@ -26,7 +26,7 @@ class LogIn extends StatelessWidget {
         children: [
           Button(
             image: Image.asset('assets/glogo.png'),
-            text: Text(
+            text: const Text(
               'Login with Google    ',
               style: TextStyle(
                 color: Colors.black,
@@ -37,7 +37,7 @@ class LogIn extends StatelessWidget {
             radius: 12.0,
             onPressed: () {},
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           ButtonTheme(
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -69,7 +69,7 @@ class LogIn extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           ButtonTheme(
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
@@ -82,9 +82,9 @@ class LogIn extends StatelessWidget {
               onPressed: () {},
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
+                children: const [
                   Icon(Icons.email),
-                  const Text(
+                  Text(
                     'Login with Email       ',
                     style: TextStyle(
                       color: Colors.white,

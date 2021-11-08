@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
-  Button(
+  const Button(
       {required this.image,
       required this.text,
       required this.color,
@@ -33,9 +33,7 @@ class Button extends StatelessWidget {
             text,
             Opacity(
               opacity: 0.0,
-              child: Image.asset(
-                'assets/glogo.png',
-              ),
+              child: image,
             )
           ],
         ),
