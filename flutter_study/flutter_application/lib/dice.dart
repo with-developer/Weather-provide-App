@@ -11,7 +11,26 @@ class Dice extends StatelessWidget {
         backgroundColor: Colors.redAccent,
         elevation: 0.0,
       ),
-      body: const Center(),
+      body: Center(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Image(
+              image: AssetImage('assets/dice1.png'),
+              width: 130.0,
+              height: 130.0,
+            ),
+            SizedBox(
+              width: 30.0,
+            ),
+            Image(
+              image: AssetImage('assets/dice2.png'),
+              width: 130.0,
+              height: 130.0,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

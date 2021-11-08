@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dice.dart';
 import 'login.dart';
 
 void main() => runApp(const MyApp());
