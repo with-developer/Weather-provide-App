@@ -11,7 +11,7 @@ class LogIn extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Sign in'),
-        backgroundColor: Colors.red[200],
+        backgroundColor: Colors.pink[300],
         elevation: 0.0,
       ),
       body: _buildButton(),
@@ -29,11 +29,11 @@ class LogIn extends StatelessWidget {
             text: const Text(
               'Login with Google    ',
               style: TextStyle(
-                color: Colors.black,
+                color: Colors.white,
                 fontSize: 15,
               ),
             ),
-            color: Colors.white,
+            color: Colors.pink,
             radius: 12.0,
             onPressed: () {},
           ),
@@ -41,7 +41,7 @@ class LogIn extends StatelessWidget {
           ButtonTheme(
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
+                primary: Colors.pink,
                 minimumSize: const Size(600, 40),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
@@ -73,7 +73,7 @@ class LogIn extends StatelessWidget {
           ButtonTheme(
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: Colors.blue,
+                primary: Colors.pink,
                 minimumSize: const Size(600, 40),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12),
