@@ -25,6 +25,10 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   String result = 'not found data';
   String result2 = '';
+  Widget loading = CircularProgressIndicator(
+    color: Colors.blueAccent,
+  );
+  bool show = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,11 +88,22 @@ class _HomeState extends State<Home> {
                 ),
                 Text(
                   result2,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    color: Colors.redAccent,
-                  ),
+                  style: TextStyle(fontSize: 20.0, height: 2.0),
                 ),
+
+                Visibility(
+                  child: loading,
+                  visible: show,
+                ),
+                // FutureBuilder(
+                //   // future: myFuture(),
+                //   builder: (context, snapshot) {
+                //     if (snapshot.connectionState == ConnectionState.done) {
+                //       return Text(snapshot.data.toString());
+                //     }
+                //     return CircularProgressIndicator();
+                //   },
+                // )
               ],
             ),
           ),
@@ -108,22 +123,18 @@ class _HomeState extends State<Home> {
 
   Future myFuture() async {
     print('start');
+    setState(() {
+      show = true;
+      result2 = '';
+    });
     await Future.delayed(
       const Duration(seconds: 3),
-    );
-    print('wating for 3 sec');
-    print(ConnectionState);
-    setState(() {
-      if (ConnectionState == ConnectionState.none) {
-        print('none');
-        result2 = 'not event';
-      } else if (ConnectionState == ConnectionState.done) {
-        print('done');
-        result2 = 'another Future loading completed';
-      } else if (ConnectionState == ConnectionState.waiting) {
-        print('wating');
-        result2 = 'test';
-      }
+    ).then((value) {
+      setState(() {
+        result2 = 'updated';
+        loading;
+        show = false;
+      });
     });
   }
 }
