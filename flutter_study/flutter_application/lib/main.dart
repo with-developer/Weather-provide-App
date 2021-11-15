@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application/login_app/login.dart';
+import 'screens/loading.dart';
 
 void main() => runApp(const MyApp());
 
@@ -8,10 +8,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Firebase login',
-      home: LogIn(),
+      title: 'Weather app',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const Loading(),
     );
   }
 }
