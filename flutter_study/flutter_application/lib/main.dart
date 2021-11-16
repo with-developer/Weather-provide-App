@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application/screens/weather_screen.dart';
 import 'screens/loading.dart';
+import 'package:get/get.dart';
 
 void main() => runApp(const MyApp());
 
@@ -8,13 +10,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Weather app',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const Loading(),
+      home: Loading(),
+      getPages: [
+        GetPage(
+          name: '/screens/weather_screen.dart',
+          page: () => WeatherScreen(),
+        ),
+      ],
     );
   }
 }
