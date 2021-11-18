@@ -138,7 +138,13 @@ class _WeatherScreenState extends State<WeatherScreen> {
                       ),
                     ],
                   ),
-                  Row()
+                  Row(
+                    children: [
+                      SizedBox(
+                        height: 150,
+                      )
+                    ],
+                  )
                 ],
               ),
             ),
@@ -156,101 +162,101 @@ class _WeatherScreenState extends State<WeatherScreen> {
                     Row(
                       children: [
                         SizedBox(
-                          height: 15,
+                          height: 15.0,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
                           children: [
-                            Column(
-                              children: [
-                                Text(
-                                  'AQI (대기질 지수)',
-                                  style: GoogleFonts.lato(
-                                    fontSize: 14.0,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Image.asset(
-                                  'image/bad.png',
-                                  width: 37,
-                                  height: 35,
-                                ),
-                                SizedBox(
-                                  height: 10.0,
-                                ),
-                                Text(
-                                  '매우나쁨',
-                                  style: GoogleFonts.lato(
-                                      fontSize: 16.0,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
+                            Text(
+                              'AQI(대기질지수)',
+                              style: GoogleFonts.lato(
+                                fontSize: 14.0,
+                                color: Colors.black,
+                              ),
                             ),
-                            Column(
-                              children: [
-                                Text(
-                                  '미세먼지',
-                                  style: GoogleFonts.lato(
-                                    fontSize: 14.0,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  '210.35',
-                                  style: GoogleFonts.lato(
-                                    fontSize: 24.0,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10.0,
-                                ),
-                                Text(
-                                  '㎍/m³',
-                                  style: GoogleFonts.lato(
-                                      fontSize: 16.0,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
+                            SizedBox(
+                              height: 10,
                             ),
-                            Column(
-                              children: [
-                                Text(
-                                  '초미세먼지',
-                                  style: GoogleFonts.lato(
-                                    fontSize: 14.0,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  '92.53',
-                                  style: GoogleFonts.lato(
-                                    fontSize: 24.0,
-                                    color: Colors.black,
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 10.0,
-                                ),
-                                Text(
-                                  '㎍/m³',
-                                  style: GoogleFonts.lato(
-                                      fontSize: 16.0,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
+                            Image.asset(
+                              'image/bad.png',
+                              width: 37,
+                              height: 35,
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Text(
+                              '매우나쁨',
+                              style: GoogleFonts.lato(
+                                  fontSize: 16.0,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              '        미세먼지        ',
+                              style: GoogleFonts.lato(
+                                fontSize: 14.0,
+                                color: Colors.black,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              '210.35',
+                              style: GoogleFonts.lato(
+                                fontSize: 24.0,
+                                color: Colors.black,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Text(
+                              '㎍/m³',
+                              style: GoogleFonts.lato(
+                                  fontSize: 16.0,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              '      초미세먼지      ',
+                              style: GoogleFonts.lato(
+                                fontSize: 14.0,
+                                color: Colors.black,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              '92.53',
+                              style: GoogleFonts.lato(
+                                fontSize: 24.0,
+                                color: Colors.black,
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10.0,
+                            ),
+                            Text(
+                              '㎍/m³',
+                              style: GoogleFonts.lato(
+                                  fontSize: 16.0,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ],
                         ),
