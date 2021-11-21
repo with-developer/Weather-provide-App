@@ -12,5 +12,11 @@ class Network {
       var parsingData = jsonDecode(jsonData);
       return parsingData;
     }
+    http.Response response2 = await http.get(Uri.parse(url));
+    if (response2.statusCode == 200) {
+      String jsonData = response.body;
+      var parsingData = jsonDecode(jsonData);
+      return parsingData;
+    }
   }
 }

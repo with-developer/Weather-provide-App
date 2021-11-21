@@ -10,9 +10,12 @@ class MyLocation {
           desiredAccuracy: LocationAccuracy.high);
       latitude2 = position.latitude;
       longitude2 = position.longitude;
+      // ignore: avoid_print
       print('latitude: $latitude2');
+      // ignore: avoid_print
       print('longitude: $longitude2');
     } catch (e) {
+      // ignore: avoid_print
       print('error');
     }
   }

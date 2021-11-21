@@ -16,11 +16,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Loading(),
+      home: const Loading(),
       getPages: [
         GetPage(
           name: '/screens/weather_screen.dart',
-          page: () => WeatherScreen(),
+          page: () => const WeatherScreen(),
         ),
       ],
     );

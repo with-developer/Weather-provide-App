@@ -18,6 +18,7 @@ class _LoadingState extends State<Loading> {
   double? longitude3;
   @override
   void initState() {
+    // ignore: todo
     // TODO: implement initState
     super.initState();
     getLocation();
@@ -32,11 +33,18 @@ class _LoadingState extends State<Loading> {
     Network network = Network('https://api.openweathermap.org/data/2.5/weather?'
         'lat=$latitude3&lon=$longitude3&appid=$apikey&units=metric');
 
-    var weatherData = await network.getJsonData();
-    print(weatherData);
-    var description = weatherData['weather'][0]['description'];
+    Network network2 =
+        Network('https://api.openweathermap.org/data/2.5/air_pollution?'
+            'lat=$latitude3&lon=$longitude3&appid=$apikey');
 
-    Get.to(() => WeatherScreen(), arguments: weatherData);
+    var weatherData = await network.getJsonData();
+    var airPollutionData = await network2.getJsonData();
+    // ignore: avoid_print
+    print(weatherData);
+    print(airPollutionData);
+
+    Get.to(() => const WeatherScreen(),
+        arguments: [weatherData, airPollutionData]);
     // Get.to(const ());
   }
 
