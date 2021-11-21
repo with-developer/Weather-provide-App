@@ -41,6 +41,7 @@ class _LoadingState extends State<Loading> {
     var airPollutionData = await network2.getJsonData();
     // ignore: avoid_print
     print(weatherData);
+    // ignore: avoid_print
     print(airPollutionData);
 
     Get.to(() => const WeatherScreen(),

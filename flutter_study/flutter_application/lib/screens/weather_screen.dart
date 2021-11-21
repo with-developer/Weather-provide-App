@@ -49,8 +49,8 @@ class _WeatherScreenState extends State<WeatherScreen> {
     aqiicon = model.aqiIcon(Aqi_Id);
     aqitext = model.aqitext(Aqi_Id);
     // print(description);
-    print(Aqi_Id);
-    print(aqitext);
+    // print(Aqi_Id);
+    // print(aqitext);
     // print(cityName);
     // print(temperature);
     // print(Weather_Id);
@@ -228,6 +228,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                               height: 10,
                             ),
                             Text(
+                              // ignore: unnecessary_brace_in_string_interps
                               '${microDust}',
                               style: GoogleFonts.lato(
                                 fontSize: 24.0,
@@ -259,6 +260,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                               height: 10,
                             ),
                             Text(
+                              // ignore: unnecessary_brace_in_string_interps
                               '${ultrafineDust}',
                               style: GoogleFonts.lato(
                                 fontSize: 24.0,
