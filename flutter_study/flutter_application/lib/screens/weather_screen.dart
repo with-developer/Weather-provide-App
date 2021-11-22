@@ -21,6 +21,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
   late final Widget icon;
   late final Widget aqiicon;
   late final Widget aqitext;
+  late final Widget koreandescription;
   late final String description;
   late final double microDust;
   late final double ultrafineDust;
@@ -48,9 +49,10 @@ class _WeatherScreenState extends State<WeatherScreen> {
     icon = model.getWeatherIcon(Weather_Id);
     aqiicon = model.aqiIcon(Aqi_Id);
     aqitext = model.aqitext(Aqi_Id);
+    koreandescription = model.weathertext(Weather_Id);
     // print(description);
-    print(Aqi_Id);
-    print(aqitext);
+    // print(Aqi_Id);
+    // print(aqitext);
     // print(cityName);
     // print(temperature);
     // print(Weather_Id);
@@ -153,14 +155,15 @@ class _WeatherScreenState extends State<WeatherScreen> {
                           const SizedBox(
                             width: 10.0,
                           ),
-                          Text(
-                            // ignore: unnecessary_string_interpolations, unnecessary_brace_in_string_interps
-                            '${description}',
-                            style: GoogleFonts.lato(
-                              fontSize: 20.0,
-                              color: Colors.black,
-                            ),
-                          ),
+                          koreandescription,
+                          // Text(
+                          //   // ignore: unnecessary_string_interpolations, unnecessary_brace_in_string_interps
+                          //   '${description}',
+                          //   style: GoogleFonts.lato(
+                          //     fontSize: 20.0,
+                          //     color: Colors.black,
+                          //   ),
+                          // ),
                         ],
                       ),
                     ],
@@ -228,6 +231,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                               height: 10,
                             ),
                             Text(
+                              // ignore: unnecessary_brace_in_string_interps
                               '${microDust}',
                               style: GoogleFonts.lato(
                                 fontSize: 24.0,
@@ -259,6 +263,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                               height: 10,
                             ),
                             Text(
+                              // ignore: unnecessary_brace_in_string_interps
                               '${ultrafineDust}',
                               style: GoogleFonts.lato(
                                 fontSize: 24.0,
