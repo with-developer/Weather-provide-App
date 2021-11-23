@@ -3,8 +3,10 @@ import 'package:flutter_application/data/my_location.dart';
 import 'package:flutter_application/data/network.dart';
 import 'package:flutter_application/screens/weather_screen.dart';
 import 'package:get/get.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 const apikey = 'ae1879f2a4c6471eebdd5517e1d3f1ea';
+const geocodingapikey = 'AIzaSyDOh7eHGwi_D60fD32kj2cLyneCCdkuick';
 
 class Loading extends StatefulWidget {
   const Loading({Key? key}) : super(key: key);
@@ -31,21 +33,25 @@ class _LoadingState extends State<Loading> {
     longitude3 = myLocation.longitude2;
 
     Network network = Network('https://api.openweathermap.org/data/2.5/weather?'
-        'lat=$latitude3&lon=$longitude3&appid=$apikey&units=metric');
+        'lat=$latitude3&lon=$longitude3&appid=$apikey&units=metric&lang=kr');
 
     Network network2 =
         Network('https://api.openweathermap.org/data/2.5/air_pollution?'
             'lat=$latitude3&lon=$longitude3&appid=$apikey');
+    Network geocoding = Network(
+        'https://maps.googleapis.com/maps/api/geocode/json?latlng=$latitude3,$longitude3&key=$geocodingapikey&language=ko');
 
     var weatherData = await network.getJsonData();
     var airPollutionData = await network2.getJsonData();
+    var geocodingData = await geocoding.getJsonData();
     // ignore: avoid_print
     print(weatherData);
     // ignore: avoid_print
     print(airPollutionData);
+    print(geocodingData);
 
     Get.to(() => const WeatherScreen(),
-        arguments: [weatherData, airPollutionData]);
+        arguments: [weatherData, airPollutionData, geocodingData]);
     // Get.to(const ());
   }
 
@@ -66,12 +72,14 @@ class _LoadingState extends State<Loading> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        body: Center(
-      child: ElevatedButton(
-        onPressed: null,
-        child: Text('Loading...'),
+    return Scaffold(
+      backgroundColor: Colors.amber[300],
+      body: const Center(
+        child: SpinKitWave(
+          color: Colors.black,
+          size: 50,
+        ),
       ),
-    ));
+    );
   }
 }

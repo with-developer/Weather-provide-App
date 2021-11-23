@@ -18,13 +18,16 @@ class _WeatherScreenState extends State<WeatherScreen> {
   late final String cityName;
   // ignore: non_constant_identifier_names
   late final int int_temp;
-  late final Widget icon;
+  // late final Widget icon;
+  late final String iconnum;
+  late final Widget icon2;
   late final Widget aqiicon;
   late final Widget aqitext;
   late final Widget koreandescription;
   late final String description;
   late final double microDust;
   late final double ultrafineDust;
+  late final String korcityName;
   var date = DateTime.now();
 
   @override
@@ -39,14 +42,21 @@ class _WeatherScreenState extends State<WeatherScreen> {
     cityName = Get.arguments[0]['name'];
     // ignore: non_constant_identifier_names
     final int Weather_Id = Get.arguments[0]['weather'][0]['id'];
+    iconnum = Get.arguments[0]['weather'][0]['icon'];
     // ignore: non_constant_identifier_names
     final int Aqi_Id = Get.arguments[1]['list'][0]['main']['aqi'];
     microDust = Get.arguments[1]['list'][0]['components']['pm10'];
     ultrafineDust = Get.arguments[1]['list'][0]['components']['pm2_5'];
     double temperature = Get.arguments[0]['main']['temp'];
     description = Get.arguments[0]['weather'][0]['description'];
+    final String korcityName1 =
+        Get.arguments[2]['results'][0]['address_components'][2]['long_name'];
+    final String korcityName2 =
+        Get.arguments[2]['results'][0]['address_components'][1]['long_name'];
+    korcityName = korcityName1 + ' ' + korcityName2;
     int_temp = temperature.round();
-    icon = model.getWeatherIcon(Weather_Id);
+    // icon = model.getWeatherIcon(Weather_Id);
+    icon2 = model.getWeatherIcon2(iconnum);
     aqiicon = model.aqiIcon(Aqi_Id);
     aqitext = model.aqitext(Aqi_Id);
     koreandescription = model.weathertext(Weather_Id);
@@ -56,11 +66,42 @@ class _WeatherScreenState extends State<WeatherScreen> {
     // print(cityName);
     // print(temperature);
     // print(Weather_Id);
+    // print(iconnum);
+    // print(korcityName1);
+    // print(korcityName2);
+    // print(korcityName);
   }
 
   String getSystemTime() {
     var now = DateTime.now();
-    return DateFormat("h:mm a - EEEE, d MMM, yyy").format(now);
+    String meridiem;
+    String day;
+    if (DateFormat("a").format(now) == 'AM') {
+      meridiem = '오전';
+    } else if (DateFormat("a").format(now) == 'PM') {
+      meridiem = '오후';
+    } else {
+      meridiem = 'error';
+    }
+    if (DateFormat("EEEE").format(now) == 'Sunday') {
+      day = '일요일';
+    } else if (DateFormat("e").format(now) == 'Monday') {
+      day = '월요일';
+    } else if (DateFormat("e").format(now) == 'Tuesday') {
+      day = '화요일';
+    } else if (DateFormat("EEEE").format(now) == 'Wednesday') {
+      day = '수요일';
+    } else if (DateFormat("e").format(now) == 'Thursday') {
+      day = '목요일';
+    } else if (DateFormat("e").format(now) == 'Friday') {
+      day = '금요일';
+    } else if (DateFormat("e").format(now) == 'Saturday') {
+      day = '토요일';
+    } else {
+      day = 'error';
+    }
+    return DateFormat("'$meridiem' h'시'mm'분' - yyy'년', MM'월 'd'일' '$day' ")
+        .format(now);
   }
 
   @override
@@ -104,7 +145,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                 ),
                 Text(
                   // ignore: unnecessary_string_interpolations, unnecessary_brace_in_string_interps
-                  '${cityName}',
+                  '${korcityName}',
                   style: GoogleFonts.lato(
                     fontSize: 40.0,
                     fontWeight: FontWeight.bold,
@@ -150,12 +191,21 @@ class _WeatherScreenState extends State<WeatherScreen> {
                         ),
                       ),
                       Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                          icon,
+                          icon2,
                           const SizedBox(
                             width: 10.0,
                           ),
-                          koreandescription,
+                          Column(
+                            children: [
+                              SizedBox(
+                                height: 3,
+                              ),
+                              koreandescription,
+                            ],
+                          ),
+
                           // Text(
                           //   // ignore: unnecessary_string_interpolations, unnecessary_brace_in_string_interps
                           //   '${description}',
@@ -171,7 +221,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                   Row(
                     children: const [
                       SizedBox(
-                        height: 50,
+                        height: 40,
                       )
                     ],
                   )
@@ -202,7 +252,7 @@ class _WeatherScreenState extends State<WeatherScreen> {
                         Column(
                           children: [
                             Text(
-                              'AQI(대기질지수)',
+                              '대기질지수',
                               style: GoogleFonts.lato(
                                 fontSize: 14.0,
                                 color: Colors.black,
