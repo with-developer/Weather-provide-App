@@ -1,34 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 class Model {
-  Widget getWeatherIcon(int condition) {
-    if (condition < 300) {
-      return SvgPicture.asset(
-        'svg/climacon-cloud_lightning.svg',
-        color: Colors.black87,
-      );
-    } else if (condition < 600) {
-      return SvgPicture.asset(
-        'svg/climacon-cloud_snow_alt.svg',
-        color: Colors.black87,
-      );
-    } else if (condition == 800) {
-      return SvgPicture.asset(
-        'svg/climacon-sun.svg',
-        color: Colors.black87,
-      );
-    } else if (condition <= 804) {
-      return SvgPicture.asset(
-        'svg/climacon-cloud_sun.svg',
-        color: Colors.black87,
-      );
-    } else {
-      return SvgPicture.asset(
-        'svg/error.svg',
-        color: Colors.black87,
-      );
-    }
+  // Widget getWeatherIcon(int condition) {
+  //   if (condition < 300) {
+  //     return SvgPicture.asset(
+  //       'svg/climacon-cloud_lightning.svg',
+  //       color: Colors.black87,
+  //     );
+  //   } else if (condition < 600) {
+  //     return SvgPicture.asset(
+  //       'svg/climacon-cloud_snow_alt.svg',
+  //       color: Colors.black87,
+  //     );
+  //   } else if (condition == 800) {
+  //     return SvgPicture.asset(
+  //       'svg/climacon-sun.svg',
+  //       color: Colors.black87,
+  //     );
+  //   } else if (condition <= 804) {
+  //     return SvgPicture.asset(
+  //       'svg/climacon-cloud_sun.svg',
+  //       color: Colors.black87,
+  //     );
+  //   } else {
+  //     return SvgPicture.asset(
+  //       'svg/error.svg',
+  //       color: Colors.black87,
+  //     );
+  //   }
+  // }
+
+  Widget getWeatherIcon2(String iconnum) {
+    return Image.asset(
+      'image/$iconnum.png',
+      width: 70,
+      height: 70,
+      color: Colors.black,
+    );
   }
 
   Widget aqiIcon(int aqicondition) {
